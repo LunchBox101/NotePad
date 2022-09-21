@@ -46,7 +46,8 @@ public class NotePadClass extends JFrame implements ActionListener, WindowListen
                     // So lets say that we are on line 5 and that line starts at caret position 100, if our caret position is currently 106
                     // we know that we must be on column 6 of line 5.
                     columnnum = caretpos - editArea.getLineStartOffset(linenum);
-
+                    //offset column by 1
+                    columnnum += 1;
                     // We have to add one here because line numbers start at 0 for getLineOfOffset and we want it to start at 1 for display.
                     linenum += 1;
                 }
@@ -171,22 +172,6 @@ public class NotePadClass extends JFrame implements ActionListener, WindowListen
         setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
     }
 
-    public void windowDeactivated(Window e){}
-
-    public void windowActivated(Window e){}
-
-    public void windowDeIconified(Window e) {}
-
-    public void windowIconified(Window e){}
-
-    public void windowClosed(Window e) {}
-
-    public void windowClosing(Window e) {
-        Exiting();
-    }
-
-    public void windowOpened(Window e) {}
-
     public void Exiting(){
         System.exit(0);
     }
@@ -199,7 +184,7 @@ public class NotePadClass extends JFrame implements ActionListener, WindowListen
 
     @Override
     public void windowClosing(WindowEvent e) {
-
+        Exiting();
     }
 
     @Override
